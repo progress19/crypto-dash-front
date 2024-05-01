@@ -1,95 +1,121 @@
+"use client"; // Marca este componente como un componente de cliente
+import "../css/global.css"; // Import your global CSS file
+import Head from "next/head";
 import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+//import React from "react";
+import React, { useEffect, useState } from "react";
+
+import "animate.css/animate.min.css";
+
+import BitcoinPrice from "../components/BitcoinPriceComponent";
+import LoanFlexibleLoanableData from "../components/LoanFlexibleLoanableDataComponent";
+import ApyBorrowCoin from "../components/ApyBorrowCoinTron";
+import EarnFlexibleList from "../components/EarnFlexibleListComponent";
+
+const DashBoardPage = () => {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!scriptLoaded) {
+      // Cargar el script de la librería externa si aún no se ha cargado
+      const script = document.createElement("script");
+      script.src = "https://www.cryptohopper.com/widgets/js/script";
+      script.async = true;
+      script.onload = () => {
+        setScriptLoaded(true);
+      };
+      document.body.appendChild(script);
+    }
+
+    // Limpia el script cuando el componente se desmonte para evitar fugas de memoria
+    return () => {
+      const existingScript = document.querySelector(
+        'script[src="https://www.cryptohopper.com/widgets/js/script"]'
+      );
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, [scriptLoaded]);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <title>CryptoDash</title>
+
+      <div className="container mx-auto mt-10">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-[#1e2026] p-3 rounded-md">
+            <BitcoinPrice />
+          </div>
+
+          <div className="bg-[#1e2026] p-3 rounded-md">
+            <div className="font-text">BORROW APY</div>
+            <hr />
+            <div className="font-semibold mt-3 font-text text-gray-200">
+              Binance
+            </div>
+            <div className="min-h-8">
+              <Image
+                src="/axs.png"
+                alt="Axs Logo"
+                width={25}
+                height={25}
+                className={"inline mr-2"}
+                priority
+              />
+              <LoanFlexibleLoanableData />
+            </div>
+            <div className="font-semibold font-text text-gray-200">
+              Just Lend
+            </div>
+            <div className="min-h-8">
+              <Image
+                src="/usdt.png"
+                alt="USDT Logo"
+                width={25}
+                height={25}
+                className={"inline mr-2"}
+                priority
+              />
+              <ApyBorrowCoin />
+            </div>
+          </div>
+          
+          <div className="bg-[#1e2026] p-3 rounded-md">
+            <div className="font-text">SUPPLY APY</div>
+            <hr />
+            <div className="font-semibold mt-3 font-text text-gray-200">
+              Binance
+            </div>
+            <div className="min-h-8">
+              <Image
+                src="/usdt.png"
+                alt="USDT Logo"
+                width={25}
+                height={25}
+                className={"inline mr-2"}
+                priority
+              />
+              <EarnFlexibleList />
+            </div>
+          </div>
+
+          <div className="bg-[#1e2026] p-3 rounded-md">
+            <div
+              className="cryptohopper-web-widget"
+              data-id="1"
+              data-table_columns="rank,name,price_usd,percent_change_24h,weekly"
+              data-coins="bitcoin,ethereum,bnb,tron,axie-infinity,ronin,pancakeswap-token"
+              data-table_style="dark"
+              data-realtime="on"
+            ></div>
+          </div>
+
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
-}
+};
+
+export default DashBoardPage;
