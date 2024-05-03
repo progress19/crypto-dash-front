@@ -50,36 +50,46 @@ const DashBoardPage = () => {
           </div>
 
           <div className="bg-[#1e2026] p-3 rounded-md">
-            <div className="font-text">BORROW APY</div>
+            
+          <div className="font-text">BORROW APY</div>
             <hr />
             <div className="font-semibold mt-3 font-text text-gray-200">
               Binance
             </div>
-            <div className="min-h-8">
+            
+            <div className="min-h-8 pt-1">
               <Image
                 src="/axs.png"
                 alt="Axs Logo"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
                 className={"inline mr-2"}
                 priority
               />
               <LoanFlexibleLoanableData />
             </div>
-            <div className="font-semibold font-text text-gray-200">
+            
+            <div className="font-semibold font-text text-gray-200 pt-2">
               Just Lend
             </div>
-            <div className="min-h-8">
+            <div className="min-h-8 pt-1">
               <Image
                 src="/usdt.png"
                 alt="USDT Logo"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
                 className={"inline mr-2"}
                 priority
               />
-              <ApyBorrowCoin />
-            </div>
+              <p className="font-number">
+              < ApyBorrowCoin />
+              </p>
+
+              <p className="font-text">
+              < ApyBorrowCoin />
+              </p>
+            
+              </div>
           </div>
           
           <div className="bg-[#1e2026] p-3 rounded-md">
@@ -88,12 +98,12 @@ const DashBoardPage = () => {
             <div className="font-semibold mt-3 font-text text-gray-200">
               Binance
             </div>
-            <div className="min-h-8">
+            <div className="min-h-8 pt-1">
               <Image
                 src="/usdt.png"
                 alt="USDT Logo"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
                 className={"inline mr-2"}
                 priority
               />
