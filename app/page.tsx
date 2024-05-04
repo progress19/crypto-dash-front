@@ -12,6 +12,7 @@ import BitcoinPrice from "../components/BitcoinPriceComponent";
 import LoanFlexibleLoanableData from "../components/LoanFlexibleLoanableDataComponent";
 import ApyBorrowCoin from "../components/ApyBorrowCoinTron";
 import EarnFlexibleList from "../components/EarnFlexibleListComponent";
+import UsdtArs from "../components/UsdtArsComponent";
 
 /* Fuentes */
 import { Roboto } from "next/font/google";
@@ -41,6 +42,9 @@ const poppins_init = Poppins({
   variable: "--font-poppins",
   weight: "400",
 });
+
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
 
 const DashBoardPage = () => {
   const [scriptLoaded, setScriptLoaded] = useState(false);
@@ -107,7 +111,7 @@ const DashBoardPage = () => {
         Crypto-Dash
       </span>
       <span
-        className={`${poppins_init.className} text-4xl font-bold px-3 text-teal-500 `}
+        className={`${inter.className} text-4xl px-3 text-teal-500 `}
       >
         Crypto-Dash
       </span>
@@ -115,8 +119,13 @@ const DashBoardPage = () => {
       <div className="container mx-auto mt-5">
         <div className="grid grid-md-cols-3 grid-1 gap-4">
           <div className="bg-[#1e2026] p-3 rounded-md">
-            <span></span>
-            <BitcoinPrice />
+            <div>
+              <BitcoinPrice />
+            </div>
+            <div className="">
+              <UsdtArs />
+            </div>
+            
           </div>
 
           <div className="bg-[#1e2026] p-3 rounded-md">
@@ -131,7 +140,7 @@ const DashBoardPage = () => {
                   Binance
                 </div>
 
-                <div className={`${noto_init.className} min-h-8 pt-1`}>
+                <div className={`${inter.className} min-h-8 pt-1`}>
                   <Image
                     src="/axs.png"
                     alt="Axs Logo"
@@ -190,7 +199,7 @@ const DashBoardPage = () => {
               className="cryptohopper-web-widget"
               data-id="1"
               data-table_columns="rank,name,price_usd,percent_change_24h,weekly"
-              data-coins="bitcoin,ethereum,bnb,tron,axie-infinity,ronin,pancakeswap-token"
+              data-coins="bitcoin,ethereum,bnb,tron,axie-infinity,ronin,pancakeswap-token,bfg"
               data-table_style="dark"
               data-realtime="on"
             ></div>
