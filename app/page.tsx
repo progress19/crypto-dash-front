@@ -1,5 +1,5 @@
-"use client"; // Marca este componente como un componente de cliente
-import "../css/global.css"; // Import your global CSS file
+"use client"; 
+import "../css/global.css"; 
 import Head from "next/head";
 import Image from "next/image";
 
@@ -12,6 +12,35 @@ import BitcoinPrice from "../components/BitcoinPriceComponent";
 import LoanFlexibleLoanableData from "../components/LoanFlexibleLoanableDataComponent";
 import ApyBorrowCoin from "../components/ApyBorrowCoinTron";
 import EarnFlexibleList from "../components/EarnFlexibleListComponent";
+
+/* Fuentes */
+import { Roboto } from "next/font/google";
+const roboto_init = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: '500'
+})
+
+import { Noto_Sans } from "next/font/google";
+const noto_init = Noto_Sans({
+  subsets: ['latin'],
+  variable: '--font-noto',
+  weight: '500'
+})
+
+import { Lato } from "next/font/google";
+const lato_init = Lato({
+  subsets: ['latin'],
+  variable: '--font-lato',
+  weight: '400'
+})
+
+import { Poppins } from "next/font/google";
+const poppins_init = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: '400'
+})
 
 const DashBoardPage = () => {
   const [scriptLoaded, setScriptLoaded] = useState(false);
@@ -28,7 +57,6 @@ const DashBoardPage = () => {
       document.body.appendChild(script);
     }
 
-    // Limpia el script cuando el componente se desmonte para evitar fugas de memoria
     return () => {
       const existingScript = document.querySelector(
         'script[src="https://www.cryptohopper.com/widgets/js/script"]'
@@ -40,24 +68,36 @@ const DashBoardPage = () => {
   }, [scriptLoaded]);
 
   return (
-    <>
-      <title>CryptoDash</title>
+    <>      
+    <title>CryptoDash</title>
 
-      <div className="container mx-auto mt-10">
+    <span className={`${roboto_init.className} text-4xl font-bold px-3 text-slate-300 `}>Crypto-Dash</span>
+    <span className={`${noto_init.className} text-4xl font-bold px-3 text-slate-600`}>Crypto-Dash</span>
+    <span className={`${lato_init.className} text-4xl font-bold px-3 text-zinc-500`}>Crypto-Dash</span>
+    <span className={`${lato_init.className} text-4xl font-bold px-3 text-neutral-400`}>Crypto-Dash</span>
+    <span className={`${lato_init.className} text-4xl font-bold px-3 text-stone-700 `}>Crypto-Dash</span>
+    <span className={`${lato_init.className} text-4xl font-bold px-3 text-teal-500 `}>Crypto-Dash</span>
+    <span className={`${poppins_init.className} text-4xl font-bold px-3 text-teal-500 `}>Crypto-Dash</span>
+
+      <div className="container mx-auto mt-5">
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-[#1e2026] p-3 rounded-md">
+          <div className="bg-[#1e2026] p-3 rounded-md" >
+            <span></span>
             <BitcoinPrice />
           </div>
 
           <div className="bg-[#1e2026] p-3 rounded-md">
             
-          <div className="font-text">BORROW APY</div>
+          <div className={poppins_init.className}>
+            <p className="text-slate-300">BORROW APY</p>
+            
+            </div>
             <hr />
-            <div className="font-semibold mt-3 font-text text-gray-200">
+            <div className={`${noto_init.className} font-semibold mt-3 font-text text-slate-300 `}>
               Binance
             </div>
             
-            <div className="min-h-8 pt-1">
+            <div className={`${noto_init.className} min-h-8 pt-1`}>
               <Image
                 src="/axs.png"
                 alt="Axs Logo"
@@ -70,7 +110,7 @@ const DashBoardPage = () => {
             </div>
             
             <div className="font-semibold font-text text-gray-200 pt-2">
-              Just Lend
+              <p className={poppins_init.className}>Just Lend</p> 
             </div>
             <div className="min-h-8 pt-1">
               <Image
@@ -81,19 +121,15 @@ const DashBoardPage = () => {
                 className={"inline mr-2"}
                 priority
               />
-              <p className="font-number">
+              <span className="font-number">
               < ApyBorrowCoin />
-              </p>
-
-              <p className="font-text">
-              < ApyBorrowCoin />
-              </p>
+              </span>
             
               </div>
           </div>
           
           <div className="bg-[#1e2026] p-3 rounded-md">
-            <div className="font-text">SUPPLY APY</div>
+            <div className={`${poppins_init.className} font-text text-slate-300`}>SUPPLY APY</div>
             <hr />
             <div className="font-semibold mt-3 font-text text-gray-200">
               Binance
