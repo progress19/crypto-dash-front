@@ -78,6 +78,7 @@ const DashBoardPage = () => {
     <span className={`${lato_init.className} text-4xl font-bold px-3 text-stone-700 `}>Crypto-Dash</span>
     <span className={`${lato_init.className} text-4xl font-bold px-3 text-teal-500 `}>Crypto-Dash</span>
     <span className={`${poppins_init.className} text-4xl font-bold px-3 text-teal-500 `}>Crypto-Dash</span>
+    <span className={`${poppins_init.className} text-4xl font-bold px-3 text-teal-500 `}>Crypto-Dash</span>
 
       <div className="container mx-auto mt-5">
         <div className="grid grid-cols-3 gap-4">
