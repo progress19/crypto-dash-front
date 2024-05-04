@@ -113,7 +113,7 @@ const DashBoardPage = () => {
       </span>
 
       <div className="container mx-auto mt-5">
-        <div className="grid grid-md-cols-3 gap-4">
+        <div className="grid grid-md-cols-3 grid-1 gap-4">
           <div className="bg-[#1e2026] p-3 rounded-md">
             <span></span>
             <BitcoinPrice />
