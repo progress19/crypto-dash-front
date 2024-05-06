@@ -4,20 +4,22 @@ import Image from "next/image";
 
 const UsdtArs = () => {
   const [usdtAsk, setUsdtAsk] = useState(null);
-  const [visible, setVisible] = useState(true); // Estado para controlar la visibilidad del precio actualizado
+  const [variation, setVariation] = useState(null);
+  const [visible, setVisible] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://crypto-dash-weld.vercel.app/getUsdtArs');
         setUsdtAsk(response.data.usdtAsk);
+        setVariation(response.data.variation);
         //setBitcoinPrice(response.data.precio_bitcoin);
         setVisible(false); // Ocultar el precio antes de actualizar
         setTimeout(() => {
           setVisible(true); // Mostrar el precio actualizado con un efecto de fade in después de 500ms
         }, 500);
       } catch (error) {
-        console.error('Error fetching Bitcoin price:', error);
+        console.error('Error fetching price:', error);
       }
     };
 
@@ -42,7 +44,7 @@ const UsdtArs = () => {
       />/ ARS 
         </span>
       {visible ? (
-          <span className={`animate__animated animate__fadeIn fadeIn pt-2`}>${usdtAsk}</span>
+          <span className={`animate__animated animate__fadeIn fadeIn pt-2`}>${usdtAsk} {variation}</span>
       ) : (
           <span className={`animate__animated animate__fadeOut fadeOut pt-2`}></span>
       )}
