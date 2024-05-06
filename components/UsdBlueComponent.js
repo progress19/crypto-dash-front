@@ -3,17 +3,18 @@ import axios from 'axios';
 import Image from "next/image";
 
 const UsdtArs = () => {
-  const [usdtAsk, setUsdtAsk] = useState(null);
-  const [usdtVariation, setUsdtVariation] = useState(null);
+  const [usdAsk, setusdAsk] = useState(null);
+  const [usdVariation, setUsdVariation] = useState(null);
   const [visible, setVisible] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://crypto-dash-weld.vercel.app/getUsdtArs');
-        setUsdtAsk(response.data.usdtAsk);
-        setUsdtVariation(response.data.usdtVariation);
-        //setBitcoinPrice(response.data.precio_bitcoin);
+        const response = await axios.get('https://crypto-dash-weld.vercel.app/getUsdBlue');
+        
+        setusdAsk(response.data.usdAsk);
+        setUsdVariation(response.data.usdVariation);
+        
         setVisible(false); // Ocultar el precio antes de actualizar
         setTimeout(() => {
           setVisible(true); // Mostrar el precio actualizado con un efecto de fade in después de 500ms
@@ -44,7 +45,7 @@ const UsdtArs = () => {
       />/ ARS 
         </span>
       {visible ? (
-          <span className={`animate__animated animate__fadeIn fadeIn pt-2`}>${usdtAsk} {usdtVariation}</span>
+          <span className={`animate__animated animate__fadeIn fadeIn pt-2`}>${usdAsk} {usdVariation}</span>
       ) : (
           <span className={`animate__animated animate__fadeOut fadeOut pt-2`}></span>
       )}

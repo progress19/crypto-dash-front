@@ -13,6 +13,7 @@ import LoanFlexibleLoanableData from "../components/LoanFlexibleLoanableDataComp
 import ApyBorrowCoin from "../components/ApyBorrowCoinTron";
 import EarnFlexibleList from "../components/EarnFlexibleListComponent";
 import UsdtArs from "../components/UsdtArsComponent";
+import UsdBlue from "../components/UsdBlueComponent";
 
 /* Fuentes */
 import { Roboto } from "next/font/google";
@@ -117,13 +118,16 @@ const DashBoardPage = () => {
       </span>
 
       <div className="container mx-auto mt-5">
-        <div className="grid grid-md-cols-3 grid-1 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <div className="bg-[#1e2026] p-3 rounded-md">
             <div>
               <BitcoinPrice />
             </div>
-            <div className="">
+            <div>
               <UsdtArs />
+            </div>
+            <div>
+              <UsdBlue />
             </div>
             
           </div>
