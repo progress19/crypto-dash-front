@@ -42,7 +42,7 @@ const UsdtArs = () => {
         height={18}
         className={"inline mr-2"}
         priority
-      />/ ARS 
+      />/ Blue
         </span>
       {visible ? (
           <span className={`animate__animated animate__fadeIn fadeIn pt-2`}>${usdAsk} {usdVariation}</span>

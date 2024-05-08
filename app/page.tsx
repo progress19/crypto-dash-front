@@ -123,10 +123,10 @@ const DashBoardPage = () => {
             <div>
               <BitcoinPrice />
             </div>
-            <div>
+            <div className="text-sm">
               <UsdtArs />
             </div>
-            <div>
+            <div className="text-sm mt-1">
               <UsdBlue />
             </div>
             
